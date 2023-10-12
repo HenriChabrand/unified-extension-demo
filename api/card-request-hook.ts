@@ -10,6 +10,11 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
             'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
             { 
                 request_id: requestId 
+            },
+            {
+                headers: {
+                    'x-api-key': process.env.API_KEY
+                }
             }
         );
 
