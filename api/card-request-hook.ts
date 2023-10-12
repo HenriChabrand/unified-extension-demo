@@ -17,6 +17,18 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
             { 
                 request_id: request_id,
                 cards:[{
+                  title: 'Expension',
+                  contents: [
+                    {
+                      type: 'status',
+                      label: 'Status',
+                      value: 'Signed',
+                      color: 'SUCCESS'
+                    },
+                    { type: 'text', label: 'Sent', value: '2 days ago' }
+                  ]
+                },
+                {
                   title: 'Acme NDA',
                   contents: [
                     {
