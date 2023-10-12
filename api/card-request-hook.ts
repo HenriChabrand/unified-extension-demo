@@ -20,7 +20,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
                 }
             }
         );
- console.log(apiResponse)
+        console.log(apiResponse.data)
         // If the POST request is successful
         if(apiResponse.status === 200) {
             res.status(201).send({ message: 'Created' });
