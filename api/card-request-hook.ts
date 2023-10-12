@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
     try {
-        const request_id = req.body.request_id;
+        const request_id = req.body.id;
         const api_key = process.env.API_KEY;
         console.log(request_id)
         console.log(api_key)
