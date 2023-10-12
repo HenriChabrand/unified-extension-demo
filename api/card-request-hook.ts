@@ -2,6 +2,9 @@ import { NowRequest, NowResponse } from '@vercel/node';
 import axios from 'axios';
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
+
+    console.log(req.body)
+    
     try {
         const request_id = req.body.id;
         const api_key = process.env.API_KEY;
