@@ -15,7 +15,26 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         const apiResponse = await axios.post(
             'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
             { 
-                request_id: request_id 
+                request_id: request_id,
+                cards:[{
+                  title: 'Acme NDA',
+                  contents: [
+                    {
+                      type: 'status',
+                      label: 'Status',
+                      value: 'Under Internal Review',
+                      color: 'WARNING'
+                    },
+                    { type: 'text', label: 'Sent', value: '2 days ago' },
+                    { type: 'text', label: 'Due Date', value: '12/09/23' },
+                    {
+                      type: 'status',
+                      label: 'Validity',
+                      value: 'Outdated',
+                      color: 'DANGER'
+                    }
+                  ]
+                }] 
             },
             {
                 headers: {
