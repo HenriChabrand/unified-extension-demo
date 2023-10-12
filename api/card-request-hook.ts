@@ -3,21 +3,24 @@ import axios from 'axios';
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
     try {
-        const requestId = req.body.request_id;
+        const request_id = req.body.request_id;
+        const api_key = process.env.API_KEY;
+        console.log(request_id)
+        console.log(api_key)
         
         // Send the POST request
         const apiResponse = await axios.post(
             'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
             { 
-                request_id: requestId 
+                request_id: request_id 
             },
             {
                 headers: {
-                    'x-api-key': process.env.API_KEY
+                    'x-api-key': api_key
                 }
             }
         );
-
+ console.log(JSON.stringify(apiResponse))
         // If the POST request is successful
         if(apiResponse.status === 200) {
             res.status(201).send({ message: 'Created' });
