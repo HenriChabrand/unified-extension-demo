@@ -87,7 +87,8 @@ class CardBuilder {
     cards: Card[];
     apiKey: string;
     requestId: string;
-
+    actions: Action[];
+  
     constructor(requestId: string, apiKey: string) {
         if (!apiKey || !requestId) {
           throw new Error('Both apiKey and requestId are required');
@@ -95,6 +96,7 @@ class CardBuilder {
         this.cards = [];
         this.apiKey = apiKey;
         this.requestId = requestId;
+        this.actions = [];
     }
 
     newCard(title: string): Card {
@@ -103,14 +105,23 @@ class CardBuilder {
         return newCard;
     }
 
+    addHeaderAction(type: ActionType, name: string, url: string): Action {
+      let newHeaderAction = new Action(type, name, url);
+      this.actions.push(newHeaderAction);
+      return newHeaderAction;
+    }
+
     async build(): Promise<boolean> {
     const dataToBeSent = {
     request_id: this.requestId,
-        cards: this.cards.map((card) => ({
-            title: card.title,
-            contents: card.contents,
-            actions: card.actions
-        }))
+    header:{
+      actions: this.actions
+    },
+    cards: this.cards.map((card) => ({
+      title: card.title,
+      contents: card.contents,
+      actions: card.actions
+    }))
     };
 
     try {
