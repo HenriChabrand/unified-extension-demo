@@ -24,7 +24,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         statusContent.setColor('SUCCESS');
 
         // Set an action
-        card.addAction('open_url_in_iframe', 'https://henri.pm/');
+        card.addAction('open_url_in_iframe', 'Open Website', 'https://henri.pm/');
         
         // Build the cards
         let success = await builder.build(); // Use 'await' to wait for the promise ⚠️
