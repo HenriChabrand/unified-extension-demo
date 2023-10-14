@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@vercel/node';
-import axios from 'axios';
+import { CardBuilder } from './cardBuilder'; 
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
@@ -7,59 +7,25 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
     
     try {
         const request_id = req.body.id;
-        const api_key = process.env.API_KEY;
-        console.log(request_id)
-        console.log(api_key)
         
-        // Send the POST request
-        const apiResponse = await axios.post(
-            'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
-            { 
-                request_id: request_id,
-                cards:[{
-                  title: 'Expension',
-                  contents: [
-                    {
-                      type: 'status',
-                      label: 'Status',
-                      value: 'Signed',
-                      color: 'SUCCESS'
-                    },
-                    { type: 'text', label: 'Sent', value: '2 days ago' }
-                  ]
-                },
-                {
-                  title: 'Acme NDA',
-                  contents: [
-                    {
-                      type: 'status',
-                      label: 'Status',
-                      value: 'Under Internal Review',
-                      color: 'WARNING'
-                    },
-                    { type: 'text', label: 'Sent', value: '2 days ago' },
-                    { type: 'text', label: 'Due Date', value: '12/09/23' },
-                    {
-                      type: 'status',
-                      label: 'Validity',
-                      value: 'Outdated',
-                      color: 'DANGER'
-                    }
-                  ]
-                }] 
-            },
-            {
-                headers: {
-                    'x-api-key': api_key
-                }
-            }
-        );
-        console.log(apiResponse.data)
-        // If the POST request is successful
-        if(apiResponse.status === 200) {
+        let builder = new CardBuilder(request_id, process.env.API_KEY);
+        
+        let card = builder.newCard('Expension');
+        
+        let textContent = card.newText('Sent', '2 days ago');
+        textContent.setLabel('New Label');
+        textContent.setValue('New Value');
+        
+        let statusContent = card.newStatus('Status', 'Incomplete', 'WARNING');
+        statusContent.setLabel('New Status Label');
+        statusContent.setValue('New Status Value');
+        statusContent.setColor('SUCCESS');
+        
+        let success = builder.build()
+        
+        if(success) {
             res.status(201).send({ message: 'Created' });
-        } else {
-            // If the API didn't return a 200 status code, pass that error back to the client.
+        } else {           
             res.status(apiResponse.status).json({ 
                 message: "An error occurred when sending POST request to the API.", 
                 error: apiResponse.statusText 
