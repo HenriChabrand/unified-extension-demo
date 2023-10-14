@@ -93,6 +93,7 @@ class CardBuilder {
     try {
 
       console.log(dataToBeSent)
+        console.log("CALL")
       const response = await axios({
         method: 'POST',
         url: 'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
@@ -104,6 +105,7 @@ class CardBuilder {
 
       // Check the HTTP status code
       // between 200-299 inclusive indicate success
+    console.log("RESPONSE")
       console.log(response.body)
       if (response.status >= 200 && response.status < 300) {
         return true;
