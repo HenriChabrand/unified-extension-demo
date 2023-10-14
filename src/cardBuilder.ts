@@ -1,6 +1,17 @@
 import axios from 'axios'; 
 
 type CardColor = 'SUCCESS' | 'WARNING' | 'DANGER' | 'INFO' | 'DEFAULT';
+type ActionType = 'request' | 'open_url' | 'open_url_in_iframe';
+
+class Action {
+  type: ActionType;
+  url: string;
+
+  constructor(type: ActionType, url: string) {
+    this.type = type;
+    this.url = url;
+  }
+}
 
 class CardContent {
     type: string;
@@ -37,11 +48,14 @@ class CardContent {
 class Card {
     title: string;
     contents: CardContent[];
+    actions: Action[]; 
 
     constructor(title: string) {
         this.title = title;
         this.contents = [];
+        this.actions = []; 
     }
+
 
     setTitle(title: string): void {
         this.title = title;
@@ -58,6 +72,12 @@ class Card {
         newStatusContent.setColor(color);
         this.contents.push(newStatusContent);
         return newStatusContent;
+    }
+
+    addAction(type: ActionType, url: string): Action {
+        let newAction = new Action(type, url);
+        this.actions.push(newAction);
+        return newAction;
     }
 }
 
@@ -83,36 +103,35 @@ class CardBuilder {
 
     async build(): Promise<boolean> {
     const dataToBeSent = {
-      request_id: this.requestId,
-      cards: this.cards.map((card) => ({
-        title: card.title,
-        contents: card.contents
-      }))
+    request_id: this.requestId,
+        cards: this.cards.map((card) => ({
+            title: card.title,
+            contents: card.contents,
+            actions: card.actions
+        }))
     };
 
-    console.log(JSON.stringify(dataToBeSent))
-console.log("CALL")
-try {
-    const response = await axios({
-            method: 'POST',
-            url: 'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
-            headers: {
-                'x-api-key': this.apiKey
-            },
-            data: dataToBeSent
-        });
-        console.log("RESPONSE")
-        console.log(response.data) 
-    } catch (error) {
-        console.log("AXIOS ERROR");
-        console.log(error.message);
-        if (error.response) {
-            console.log('Response data:', error.response.data);
-            console.log('Response status:', error.response.status);
-            console.log('Response headers:', error.response.headers);
-        }
-    }
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: 'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
+        headers: {
+          'x-api-key': this.apiKey
+        },
+        data: dataToBeSent
+      });
 
+      // Check the HTTP status code
+      // between 200-299 inclusive indicate success
+      if (response.status >= 200 && response.status < 300) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 }
 
