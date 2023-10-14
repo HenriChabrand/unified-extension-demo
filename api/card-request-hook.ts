@@ -21,8 +21,8 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         statusContent.setValue('New Status Value');
         statusContent.setColor('SUCCESS');
         
-        let success = builder.build()
-        
+        let success = await builder.build(); // Use 'await' to wait for the promise
+    
         if(success) {
             res.status(201).send({ message: 'Created' });
         } else {           
