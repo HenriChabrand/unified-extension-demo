@@ -104,6 +104,7 @@ class CardBuilder {
 
       // Check the HTTP status code
       // between 200-299 inclusive indicate success
+      console.log(response.body)
       if (response.status >= 200 && response.status < 300) {
         return true;
       } else {
