@@ -1,51 +1,52 @@
-# Unified Extension (demo)
+# Unified Extension (Demo)
 
-A Vercel serverless function for building CRM extension cards in HubSpot, Salesforce and Intercom.
+A Vercel serverless function for unifying creation of CRM extension cards for HubSpot, Salesforce, and Intercom.
 
+## Overview
 
-## Concept
+This project provides the architecture necessary for creating, handling and delivering CRM extension card requests across multiple platforms.
 
-The project provides the infrastructure for creating and handling cards request from different platform. 
+The primary classes of this project, `CardBuilder`, `Card`, and `CardContent`, form the core functioning units.
 
-The `CardBuilder`, `Card`, and `CardContent` classes are the core of this project. 
+-  `CardBuilder`: Manages the card creation process. It requires a `requestId` (extracted from the incoming request's body), and an `apiKey` (stored as an environment variable) upon initialization.
 
-The `CardBuilder` class is responsible for building and sending cards. It takes a `requestId` and an `apiKey` as arguments upon instantiation. The `requestId` is obtained from an incoming request's body, while the `apiKey` is stored as an environment variable.
+-  `Card`: Represents a card object. Each card has a `title` and an array of `contents`.
 
-The `Card` class is responsible for creating a card. Each card contains a `title` and an array of `contents`. 
+-  `CardContent`: Designed for creating the content of a card. The content can be of type `text` or `status`.
 
-The `CardContent` class is responsible for creating content for a card. Content could be of type `text` or `status`.
+When you've built your desired cards and content, the `CardBuilder.build()` method can be used to automatically convert and deliver the card in the appropriate format for the targeted platform.
 
-Once you have built the desired cards and content, utilize the `CardBuilder.build()` method to automatically generate the card in the appropriate format for the targeted platform.
+## Getting Started
 
-## Quick Start
+Follow these steps to get the project up and running:
 
-1. Clone this repository:
+1. **Clone the repository**:
 
-   ```
-   git clone https://github.com/username/project-repo.git
-   ```
+    ```bash
+    git clone https://github.com/username/project-repo.git
+    ```
+   
+2. **Install dependencies**:
 
-2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-   ```
-   npm install
-   ```
+3. **Set environment variable** in `.env` file:
 
-3. Add environment variable for your API key in a `.env` file:
+    ```env
+    API_KEY=your-unique-api-key
+    ```
 
-   ```
-   API_KEY=your-unique-api-key
-   ```
+4. **Start the development server**:
 
-4. Run the development server:
-
-   ```
-   vercel dev
-   ```
+    ```bash
+    vercel dev
+    ```
 
 ## Using CardBuilder
 
-Here's an example of how to use `CardBuilder` in your code:
+Here's an example of how `CardBuilder` can be used:
 
 ```typescript
 let builder = new CardBuilder(request_id, process.env.API_KEY);
@@ -55,26 +56,23 @@ let card = builder.newCard('Partner NDA');
 let textContent = card.newText('Owner', 'Henri CHABRAND');
 
 let statusContent = card.newStatus('Status', 'Pending', 'WARNING');
-
 statusContent.setValue('Signed');
 statusContent.setColor('SUCCESS');
 
-let success = await builder.build(); // Wait until the build is complete to avoid killing the process ⚠️
+let success = await builder.build(); // Wait for the build to complete to prevent the process from terminating prematurely
 ```
 
-## Test On Postman
+## Testing with Postman
 
+Send a GET request to the endpoint `https://tlgbrx45cg.execute-api.eu-west-3.amazonaws.com/api/request-hook` with the following query parameters:
 
+-  `hook_redirection`: The URL where your `card-request-hook` deployment exists. Example: `https://project-name.vercel.app/api/card-request-hook)`
+-  `service_id`: The ID of the simulated platform, which can be either `hubspot`, `salesforce`, or `intercom`.
 
-GET to endpoint `https://tlgbrx45cg.execute-api.eu-west-3.amazonaws.com/api/request-hook` with the following query parameter
+You will receive a response that includes the generated cards in the appropriate payload format for the targeted platform.
 
-`hook_redirection` : the url of your `card-request-hook` deployement (e.g https://project-name.vercel.app/api/card-request-hook)
-`service_id` : the id of the simulated platform, which can be either `hubspot`, `salesforce` or `intercom` 
+## Testing with HubSpot
 
-You will get as a response the cards generated in the right payload format for the taregted platform.
+Details coming soon. 
 
-
-
-## Test On HubSpot
-
-TO come
+Stay tuned!
