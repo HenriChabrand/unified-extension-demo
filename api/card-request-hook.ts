@@ -23,8 +23,12 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         statusContent.setValue('Signed');
         statusContent.setColor('SUCCESS');
 
-        // Set an action
+        // Set a card level action
         card.addAction('open_url_in_iframe', 'Open Website', 'https://henri.pm/');
+
+        // Set a header level action
+        builder.addHeaderAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
+
         
         // Build the cards
         let success = await builder.build(); // Use 'await' to wait for the promise ⚠️
