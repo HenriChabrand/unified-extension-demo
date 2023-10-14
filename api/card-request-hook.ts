@@ -9,18 +9,21 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         const request_id = req.body.id;
         
         let builder = new CardBuilder(request_id, process.env.API_KEY);
+
+        // Create a new card
+        let card = builder.newCard('Partner NDA');
         
-        let card = builder.newCard('Expension');
+        // Add a text content
+        card.newText('Owner', 'Henri CHABRAND');
         
-        let textContent = card.newText('Sent', '2 days ago');
-        textContent.setLabel('New Label');
-        textContent.setValue('New Value');
+        // Add a status content
+        let statusContent = card.newStatus('Status', 'Pending', 'WARNING');
         
-        let statusContent = card.newStatus('Status', 'Incomplete', 'WARNING');
-        statusContent.setLabel('New Status Label');
-        statusContent.setValue('New Status Value');
+        // Edit the status
+        statusContent.setValue('Signed');
         statusContent.setColor('SUCCESS');
         
+        // Build the cards
         let success = await builder.build(); // Use 'await' to wait for the promise ⚠️
     
         if(success) {
