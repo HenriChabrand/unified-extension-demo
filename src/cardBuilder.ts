@@ -91,6 +91,8 @@ class CardBuilder {
     };
 
     try {
+
+      console.log(dataToBeSent)
       const response = await axios({
         method: 'POST',
         url: 'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
