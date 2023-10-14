@@ -5,10 +5,12 @@ type ActionType = 'request' | 'open_url' | 'open_url_in_iframe';
 
 class Action {
   type: ActionType;
+  name: string;
   url: string;
 
-  constructor(type: ActionType, url: string) {
+  constructor(type: ActionType, name: string, url: string) {
     this.type = type;
+    this.name = name;
     this.url = url;
   }
 }
