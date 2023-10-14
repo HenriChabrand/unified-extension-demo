@@ -90,7 +90,7 @@ class CardBuilder {
       }))
     };
 
-    console.log(dataToBeSent)
+    console.log(JSON.stringify(dataToBeSent))
 console.log("CALL")
 try {
     const response = await axios({
