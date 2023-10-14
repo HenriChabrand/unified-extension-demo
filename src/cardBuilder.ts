@@ -76,8 +76,8 @@ class Card {
         return newStatusContent;
     }
 
-    addAction(type: ActionType, url: string): Action {
-        let newAction = new Action(type, url);
+    addAction(type: ActionType, name: string, url: string): Action {
+        let newAction = new Action(type, name, url);
         this.actions.push(newAction);
         return newAction;
     }
