@@ -112,26 +112,25 @@ class CardBuilder {
     }
 
     async build(): Promise<boolean> {
-    const dataToBeSent = {
-    request_id: this.requestId,
-    header:{
-      actions: this.actions
-    },
-    cards: this.cards.map((card) => ({
-      title: card.title,
-      contents: card.contents,
-      actions: card.actions
-    }))
+    const cardExtension = {
+      header:{
+        actions: this.actions
+      },
+      cards: this.cards.map((card) => ({
+        title: card.title,
+        contents: card.contents,
+        actions: card.actions
+      }))
     };
 
     try {
       const response = await axios({
         method: 'POST',
-        url: 'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
+        url:`https://tlgbrx45cg.execute-api.eu-west-3.amazonaws.com/api/requests/${this.requestId}/cards`,
         headers: {
           'x-api-key': this.apiKey
         },
-        data: dataToBeSent
+        data: cardExtension
       });
 
       // Check the HTTP status code
