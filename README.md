@@ -32,7 +32,7 @@ Follow these steps to get the project up and running:
    **`service_id`**: The ID of the simulated platform, which can be either `hubspot`, `salesforce`, or `intercom`.
 
     You should receive a response that includes the generated cards in the appropriate payload format expected by the targeted platform.
-3. **Edit `src/main.ts` and play with the CardBuilder**:
+3. **Edit `api/main.ts` and play with the CardBuilder**:
 ```typescript
 let builder = new CardBuilder(request_id, process.env.API_KEY);
 
