@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@vercel/node';
-import { CardBuilder } from './cardBuilder'; 
+import { CardBuilder } from '../src/cardBuilder'; 
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
