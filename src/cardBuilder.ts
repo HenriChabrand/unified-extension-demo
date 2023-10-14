@@ -90,32 +90,29 @@ class CardBuilder {
       }))
     };
 
-    try {
-
-      console.log(dataToBeSent)
-        console.log("CALL")
-      const response = await axios({
-        method: 'POST',
-        url: 'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
-        headers: {
-          'x-api-key': this.apiKey
-        },
-        data: dataToBeSent
-      });
-
-      // Check the HTTP status code
-      // between 200-299 inclusive indicate success
-    console.log("RESPONSE")
-      console.log(response.body)
-      if (response.status >= 200 && response.status < 300) {
-        return true;
-      } else {
-        return false;
-      }
+    console.log(dataToBeSent)
+console.log("CALL")
+try {
+    const response = await axios({
+            method: 'POST',
+            url: 'https://83avl41zwi.execute-api.eu-west-3.amazonaws.com/default/unifiedExtensionCardBuilder',
+            headers: {
+                'x-api-key': this.apiKey
+            },
+            data: dataToBeSent
+        });
+        console.log("RESPONSE")
+        console.log(response.data) 
     } catch (error) {
-      console.error(error);
-      return false;
+        console.log("AXIOS ERROR");
+        console.log(error.message);
+        if (error.response) {
+            console.log('Response data:', error.response.data);
+            console.log('Response status:', error.response.status);
+            console.log('Response headers:', error.response.headers);
+        }
     }
+
   }
 }
 
