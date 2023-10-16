@@ -1,12 +1,12 @@
 import { NowRequest, NowResponse } from '@vercel/node';
+import { Morph } from '../src/Morph'; 
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
     console.log(req.body)
     
     try {
-        import { Morph } from '../src/Morph'; 
-        
+       
         const request_id = req.body.id;
 
         // Init Morph client with your API key
