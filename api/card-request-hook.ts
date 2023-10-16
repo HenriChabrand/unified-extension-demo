@@ -1,11 +1,12 @@
 import { NowRequest, NowResponse } from '@vercel/node';
-import { Morph } from '../src/Morph'; 
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
     console.log(req.body)
     
     try {
+        import { Morph } from '../src/Morph'; 
+        
         const request_id = req.body.id;
 
         // Init Morph client with your API key
@@ -46,6 +47,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
             });
         }
     } catch (error) {
+        console.log(JSON.stringify(error))
         res.status(500).json({ 
             message: 'An error occurred when fetching the request id or sending post request.', 
             error: error.message
