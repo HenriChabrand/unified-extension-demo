@@ -16,7 +16,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         let cardBuilder = morph.newCardBuilder(request_id);
         
         // Create a new card
-        let card = builder.newCard('Partner NDA');
+        let card = cardBuilder.newCard('Partner NDA');
         
         // Add a text content
         card.newText('Owner', 'Henri CHABRAND');
@@ -32,11 +32,11 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.addAction('open_url_in_iframe', 'Open Website', 'https://henri.pm/');
 
         // Set a header level action
-        builder.addHeaderAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
+        cardBuilder.addHeaderAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
 
         
         // Build the cards
-        let success = await builder.build(); // Use 'await' to wait for the promise ⚠️
+        let success = await cardBuilder.build(); // Use 'await' to wait for the promise ⚠️
     
         if(success) {
             res.status(201).send({ message: 'Created' });
