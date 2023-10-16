@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@vercel/node';
-import { CardBuilder } from '../src/cardBuilder'; 
+import { Morph } from '../src/Morph'; 
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
@@ -7,9 +7,13 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
     
     try {
         const request_id = req.body.id;
-        
-        let builder = new CardBuilder(request_id, process.env.API_KEY);
 
+        // Init Morph client with your API key
+        let morph = new Morph(process.env.API_KEY);
+
+        // Load Morph's Card Builder to build a card response to the current request
+        let cardBuilder = morph.newCardBuilder(request_id);
+        
         // Create a new card
         let card = builder.newCard('Partner NDA');
         
