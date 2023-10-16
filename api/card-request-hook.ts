@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@vercel/node';
-import { Morph } from '../src/Morph'; 
+import { Morph } from 'run-morph-client'; 
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
