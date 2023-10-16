@@ -28,6 +28,13 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         statusContent.setValue('Signed');
         statusContent.setColor('SUCCESS');
 
+        card.newStatus('Status A', 'Great', 'SUCCESS');
+        card.newStatus('Status B', 'Good', 'WARNING');
+        card.newStatus('Status C', 'Bad', 'DANGER');
+        card.newStatus('Status D', 'Neutral', 'INFO');
+        card.newStatus('Status E', 'Basic', 'DEFAULT');
+
+
         // Set a card level action
         card.addAction('open_url_in_iframe', 'Open Website', 'https://henri.pm/');
 
