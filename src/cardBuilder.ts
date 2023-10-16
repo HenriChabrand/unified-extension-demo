@@ -3,6 +3,22 @@ import axios from 'axios';
 type CardColor = 'SUCCESS' | 'WARNING' | 'DANGER' | 'INFO' | 'DEFAULT';
 type ActionType = 'request' | 'open_url' | 'open_url_in_iframe';
 
+class Morph {
+  apiKey: string;
+
+  constructor(apiKey: string) {
+    if (!apiKey) {
+      throw new Error('An API key is required');
+    }
+    this.apiKey = apiKey;
+  }
+
+  newCardBuilder(requestId: string): CardBuilder {
+    return new CardBuilder(requestId, this.apiKey);
+  }
+}
+
+
 class Action {
   type: ActionType;
   name: string;
