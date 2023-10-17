@@ -4,6 +4,20 @@ import { Morph } from 'run-morph-client';
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
     console.log(req.body)
+    /*
+    {
+      id: 're-833a-c30f-8765-7f440e1066', 
+      created_at: '2023-10-17T09:22:16.040Z',
+      status: 'card.requested',
+      context: {
+        service_id: 'hubspot',
+        workspace_id: '9950766',
+        entity_type: 'contact',
+        entity_id: '123'
+      }
+    } 
+    */
+
     
     try {
        
