@@ -56,11 +56,11 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         cardBuilder.addHeaderAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
 
 
-         const newCard = cardBuilder.newCard('Services');
-  
-          newCard.newStatus('DB Service', 'Available', 'SUCCESS');
-          newCard.newStatus('API Service', 'Degraded Performance', 'WARNING');
-          newCard.newStatus('Logging Service', 'Unavailable', 'DANGER');
+         const newCard = cardBuilder.newCard('User Profile');
+ 
+newCard.newText('Name', 'John Doe');
+newCard.newText('Email', 'john.doe@example.com');
+newCard.newText('Role', 'Product Manager');
         
         // Build the cards
         let success = await cardBuilder.build(); // Use 'await' to wait for the promise ⚠️
