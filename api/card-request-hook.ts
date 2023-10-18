@@ -55,6 +55,12 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         // Set a header level action
         cardBuilder.addHeaderAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
 
+
+        let card = cardBuilder.newCard('HubSpot Extension Project');
+ 
+        card.newStatus('Status', 'In Progress', 'WARNING');
+        card.newText('Project ID', 'HUB-015');
+        card.newText('Owner', 'Henri CHABRAND');
         
         // Build the cards
         let success = await cardBuilder.build(); // Use 'await' to wait for the promise ⚠️
