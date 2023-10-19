@@ -31,6 +31,9 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         
         // Create a new card
         let card = cardBuilder.newCard('Partner NDA');
+
+        card.setLink("https://henri.pm/");
+
         
         // Add a text content
         card.newText('Owner', 'Henri CHABRAND');
