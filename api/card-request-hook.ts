@@ -77,7 +77,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
             });
         }
     } catch (error) {
-        console.log(JSON.stringify(error))
+        console.log(error)
         res.status(500).json({ 
             message: 'An error occurred when fetching the request id or sending post request.', 
             error: error.message
