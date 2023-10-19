@@ -42,12 +42,6 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         statusContent.setValue('Signed');
         statusContent.setColor('SUCCESS');
 
-        card.newStatus('Status A', 'Great', 'SUCCESS');
-        card.newStatus('Status B', 'Good', 'WARNING');
-        card.newStatus('Status C', 'Bad', 'DANGER');
-        card.newStatus('Status D', 'Neutral', 'INFO');
-        card.newStatus('Status E', 'Basic', 'DEFAULT');
-
 
         // Set a card level action
         card.addAction('open_url_in_iframe', 'Open Website', 'https://henri.pm/');
@@ -56,11 +50,17 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         cardBuilder.addHeaderAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
 
 
-         const newCard = cardBuilder.newCard('User Profile');
- 
-newCard.newText('Name', 'John Doe');
-newCard.newText('Email', 'john.doe@example.com');
-newCard.newText('Role', 'Product Manager');
+        // Create a new card
+        let card_2 = cardBuilder.newCard('0 to 100 Contract Agreement');
+        
+        // Add a text content
+        card_2.newText('Owner', 'Henri CHABRAND');
+        
+        // Add a status content
+        let statusContent = card_2.newStatus('Status', 'Pending', 'WARNING');
+        
+    
+
         
         // Build the cards
         let success = await cardBuilder.build(); // Use 'await' to wait for the promise ⚠️
