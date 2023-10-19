@@ -32,8 +32,6 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         // Create a new card
         let card = cardBuilder.newCard('Partner NDA');
 
-        card.setLink("https://henri.pm/");
-
         
         // Add a text content
         card.newText('Owner', 'Henri CHABRAND');
@@ -47,10 +45,10 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
 
         // Set a card level action
-        card.newAction('OPEN_URL_IN_IFRAME', 'Open Website', 'https://henri.pm/');
+        card.addAction('open_url_in_iframe', 'Open Website', 'https://henri.pm/');
 
         // Set a header level action
-        cardBuilder.newGlobalAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
+        cardBuilder.addHeaderAction('open_url_in_iframe', 'Open Website from Header', 'https://henri.pm/');
 
 
         // Create a new card
@@ -62,7 +60,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         // Add a status content
         let statusContent = card_2.newStatus('Status', 'Pending', 'WARNING');
         
-
+    
 
         
         // Build the cards
@@ -77,7 +75,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
             });
         }
     } catch (error) {
-        console.log(error)
+        console.log(JSON.stringify(error))
         res.status(500).json({ 
             message: 'An error occurred when fetching the request id or sending post request.', 
             error: error.message
