@@ -62,7 +62,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         // Add a status content
         let statusContent = card_2.newStatus('Status', 'Pending', 'WARNING');
         
-    
+
 
         
         // Build the cards
