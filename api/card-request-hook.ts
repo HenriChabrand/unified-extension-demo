@@ -46,6 +46,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         // Set a card level action
         card.newAction('OPEN_URL_IN_IFRAME', 'Open Website', 'https://henri.pm/');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://henri.pm/');
 
         // Set a card panel level action
         cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open Website from Header', 'https://henri.pm/');
@@ -53,7 +54,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         // Create a new card
         let card_2 = cardBuilder.newCard('0 to 100 Contract Agreement');
-        
+         card_2.newAction('OPEN_URL', 'Open Website (ext)', 'https://henri.pm/');
         // Add a text content
         card_2.newText('Owner', 'Henri CHABRAND');
         
