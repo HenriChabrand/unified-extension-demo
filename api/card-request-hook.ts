@@ -45,7 +45,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
 
         // Set a card level action
-        card.newAction('open_url_in_iframe', 'Open Website', 'https://henri.pm/');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Open Website', 'https://henri.pm/');
 
         // Set a header level action
         cardBuilder.newGlobalAction('OPEN_URL_IN_IFRAME', 'Open Website from Header', 'https://henri.pm/');
