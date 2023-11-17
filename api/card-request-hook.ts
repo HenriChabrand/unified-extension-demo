@@ -48,9 +48,9 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
 
         // Set a card panel level action
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open Website from Header', 'https://henri.pm/');
+        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Signature', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
 
-
+/*
         // Create a new card
         let card_2 = cardBuilder.newCard('0 to 100 Contract Agreement');
          card_2.newAction('OPEN_URL', 'Open Website (ext)', 'https://henri.pm/');
@@ -61,7 +61,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         let statusContent = card_2.newStatus('Status', 'Pending', 'WARNING');
         
     
-
+*/
         
         // Build the cards
         let success = await cardBuilder.build(); // Use 'await' to wait for the promise ⚠️
