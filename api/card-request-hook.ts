@@ -48,7 +48,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
 
         // Set a card panel level action
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Signature', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
+        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Signature', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
 
 /*
         // Create a new card
