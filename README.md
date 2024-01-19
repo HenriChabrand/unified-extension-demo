@@ -34,9 +34,16 @@ Follow these steps to get the project up and running:
     You should receive a response that includes the generated cards in the appropriate payload format expected by the targeted platform.
 3. **Edit `api/card-request-hook.ts` and play with the CardBuilder**:
 ```typescript
-let builder = new CardBuilder(request_id, process.env.API_KEY);
+// Retrieve the request ID from the event body
+const request_id = req.body.id;
 
-let card = builder.newCard('Partner NDA');
+// Init Morph client with your API key
+let morph = new Morph(process.env.API_KEY, process.env.API_SECRET);
+
+// Load Morph's Card Builder to build a card response to the current request
+let cardBuilder = morph.newCardBuilder(request_id);
+
+let card = cardBuilder.newCard('Partner NDA');
 
 let textContent = card.newText('Owner', 'Henri CHABRAND');
 
