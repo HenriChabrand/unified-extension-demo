@@ -49,6 +49,8 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         // Set a card panel level action
         cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Signature', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
+        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Second Action', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
+          cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Third Action', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
 
  /*
         // Create a new card
