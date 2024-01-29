@@ -27,7 +27,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         // Load Morph's Card Builder to build a card response to the current request
         let cardBuilder = morph.newCardBuilder(request_id);
-       cardBuilder.newCard('Fooo');
+        /*cardBuilder.newCard('Fooo');
         // Create a new card
         let card = cardBuilder.newCard('Partner NDA V1.0.5');
 
@@ -52,7 +52,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Second Action', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
           cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Third Action', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
 
- /*
+
         // Create a new card
         let card_2 = cardBuilder.newCard('0 to 100 Contract Agreement');
          card_2.newAction('OPEN_URL', 'Open Website (ext)', 'https://henri.pm/');
