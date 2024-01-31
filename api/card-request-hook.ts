@@ -27,7 +27,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         // Load Morph's Card Builder to build a card response to the current request
         let cardBuilder = morph.newCardBuilder(request_id);
-        /*cardBuilder.newCard('Fooo');
+        
         // Create a new card
         let card = cardBuilder.newCard('Partner NDA V1.0.5');
 
@@ -62,9 +62,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         // Add a status content
         let statusContent = card_2.newStatus('Status', 'Pending', 'WARNING');
         
-    
-        */
-        
+   
         // Build the cards
         let success = await cardBuilder.build(); // Use 'await' to wait for the promise ⚠️
     
