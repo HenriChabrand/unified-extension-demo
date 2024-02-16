@@ -29,38 +29,27 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         let cardBuilder = morph.newCardBuilder(request_id);
         
         // Create a new card
-        let card = cardBuilder.newCard('Partner NDA V1.0.5');
+        let card = cardBuilder.newCard('Devis #5456');
 
         card.setLink("https://henri.pm/")
-        // Add a text content
-        card.newText('Owner', 'Henri CHABRAND');
+
+        //
+        card.newStatus('Status', 'Envoyé', 'WARNING');
+        card.newText('Total (HT)', '1400€');
         
-        // Add a status content
-        let statusContent = card.newStatus('Status', 'Pending', 'WARNING');
+        card.newText('> Poteau', '1 x 1000€');
+        card.newText('> Cable', '4 x 100€');
         
-        // Edit the status
-        statusContent.setValue('Signed');
-        statusContent.setColor('SUCCESS');
 
 
         // Set a card level action
-        card.newAction('OPEN_URL_IN_IFRAME', 'Open Website', 'https://henri.pm/');
-        card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Edit in Qwoty', 'https://henri.pm/');
+        //card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
 
         // Set a card panel level action
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Signature', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Second Action', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
-          cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Third Action', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
+        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Nouveau devis', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
 
 
-        // Create a new card
-        let card_2 = cardBuilder.newCard('0 to 100 Contract Agreement');
-         card_2.newAction('OPEN_URL', 'Open Website (ext)', 'https://henri.pm/');
-        // Add a text content
-        card_2.newText('Owner', 'Henri CHABRAND');
-        
-        // Add a status content
-        let statusContent = card_2.newStatus('Status', 'Pending', 'WARNING');
         
    
         // Build the cards
