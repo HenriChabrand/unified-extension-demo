@@ -37,9 +37,9 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newStatus('Status', 'Envoyé', 'WARNING');
         card.newText('Total', '1400€');
         
-        card.newText('■ Poteau', '1 x 1000€');
-        card.newText('■ Cable', '4 x 100€');
-        card.newText('□ Sardine', '8 x 10€');
+        card.newText('#1', ' ■ Poteau (1 x 1000€)');
+        card.newText('#2', ' ■ Cable (4 x 100€)');
+        card.newText('#3', ' □ Sardine (8 x 10€)');
         
 
 
