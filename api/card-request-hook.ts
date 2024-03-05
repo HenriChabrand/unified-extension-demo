@@ -59,12 +59,14 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
 
         // Set a card level action
-        card.newAction('OPEN_URL_IN_IFRAME', 'Edit in Qwoty', 'https://henri.pm/');
+         card.newAction('REQUEST', 'Quick Action 3', null, 'action_3',{'foo':'bar', 'hello':'world'});
+        //card.newAction('OPEN_URL_IN_IFRAME', 'Edit in Qwoty', 'https://henri.pm/');
         //card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
 
         // Set a card panel level action
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Nouveau devis', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
-         cardBuilder.newRootAction('REQUEST', 'Quick Action', null, 'action_1',{'foo':'bar', 'hello':'world'});
+        //cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Nouveau devis', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
+        cardBuilder.newRootAction('REQUEST', 'Quick Action 1', null, 'action_1',{'foo':'bar', 'hello':'world'});
+        cardBuilder.newRootAction('REQUEST', 'Quick Action 2', null, 'action_2',{'foo':'bar', 'hello':'world'});
 
 
         
