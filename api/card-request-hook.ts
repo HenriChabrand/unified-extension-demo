@@ -28,7 +28,16 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
          // Load Morph's Action response Builder to build an action response to the current action request
         if(req.body.type === 'action'){
             let actionResponseBuilder = morph.ActionResponseBuilder(request_id);
-            actionResponseBuilder.build(true,`Action ${req.body.context.action_id} succeed !`)
+            let success = await actionResponseBuilder.build(true,`Action ${req.body.context.action_id} succeed !`)
+    
+            if(success) {
+                res.status(201).send({ message: 'Created' });
+            } else {           
+                res.status(apiResponse.status).json({ 
+                    message: "An error occurred when sending POST request to the API.", 
+                    error: apiResponse.statusText 
+                });
+            }
         }
         
         // Load Morph's Card Builder to build a card response to the current request
