@@ -50,7 +50,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         //
         card.newStatus('Status', 'Envoyé', 'WARNING');
-        card.newText('Total', '1400€');
+        card.newText('Time',  new Date().toLocaleTimeString() );
         
         card.newText('#1', ' ■ Poteau (1 x 1000€)');
         card.newText('#2', ' ■ Cable (4 x 100€)');
