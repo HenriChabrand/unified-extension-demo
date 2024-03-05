@@ -49,7 +49,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         // Set a card panel level action
         cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Nouveau devis', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
-         cardBuilder.newRootAction('REQUEST', 'Quick Action', null, 'action_1',{'foo':'bar'});
+         cardBuilder.newRootAction('REQUEST', 'Quick Action', null, 'action_1',{'foo':'bar', 'hello':'world'});
 
 
         
