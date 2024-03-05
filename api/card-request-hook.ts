@@ -25,6 +25,12 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         // Init Morph client with your API key
         let morph = new Morph(process.env.API_KEY, process.env.API_SECRET);
 
+         // Load Morph's Action response Builder to build an action response to the current action request
+        if(req.body.type === 'action'){
+            let actionResponseBuilder = morph.ActionResponseBuilder(request_id);
+            actionResponseBuilder.build(true,`Action ${req.body.context.action_id} succeed !`)
+        }
+        
         // Load Morph's Card Builder to build a card response to the current request
         let cardBuilder = morph.newCardBuilder(request_id);
         
