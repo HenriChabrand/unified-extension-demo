@@ -27,7 +27,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
          // Load Morph's Action response Builder to build an action response to the current action request
         if(req.body.type === 'action'){
-            let actionResponseBuilder = morph.ActionResponseBuilder(request_id);
+            let actionResponseBuilder = morph.newActionResponseBuilder(request_id);
             let success = await actionResponseBuilder.build(true,`Action ${req.body.context.action_id} succeed !`)
     
             if(success) {
