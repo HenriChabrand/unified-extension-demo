@@ -28,7 +28,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
          // Load Morph's Action response Builder to build an action response to the current action request
         if(req.body.type === 'action'){
             let actionResponseBuilder = morph.newActionResponseBuilder(request_id);
-            let success = await actionResponseBuilder.build(true,`Action ${req.body.context.action_id} succeed !`)
+            let success = await actionResponseBuilder.build( (req.body.context.action_id !== 'action_failing'),`Action ${req.body.context.action_id} runned !`)
     
             if(success) {
                 res.status(201).send({ message: 'Created' });
@@ -59,14 +59,14 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
 
         // Set a card level action
-         card.newAction('REQUEST', 'Quick Action 3', null, 'action_3',{'foo':'bar', 'hello':'world'});
+         card.newAction('REQUEST', 'Card Action', null, 'action_card');
         //card.newAction('OPEN_URL_IN_IFRAME', 'Edit in Qwoty', 'https://henri.pm/');
         //card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
 
         // Set a card panel level action
         //cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Nouveau devis', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
-        cardBuilder.newRootAction('REQUEST', 'Quick Action 1', null, 'action_1',{'foo':'bar', 'hello':'world'});
-        cardBuilder.newRootAction('REQUEST', 'Quick Action 2', null, 'action_2',{'foo':'bar', 'hello':'world'});
+        cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
+        cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
 
 
         
