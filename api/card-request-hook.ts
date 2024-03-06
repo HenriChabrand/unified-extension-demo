@@ -24,7 +24,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newText('#1', ' ■ Poteau (1 x 1000€)');
         card.newText('#2', ' ■ Cable (4 x 100€)');
         card.newText('#3', ' □ Sardine (8 x 10€)');
-        card.newAction('REQUEST', 'Card Action', null, 'action_card');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Card Action', 'https://app.runmorph.dev/embedded-flow');
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
         let success = await cardBuilder.build();
