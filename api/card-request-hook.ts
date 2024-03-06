@@ -2,89 +2,45 @@ import { NowRequest, NowResponse } from '@vercel/node';
 import { Morph } from 'run-morph-client'; 
 
 export default async (req: NowRequest, res: NowResponse): Promise<void> => {
-
     console.log(req.body)
-    /*
-    {
-      id: 're-833a-c30f-8765-7f440e1066', 
-      created_at: '2023-10-17T09:22:16.040Z',
-      status: 'card.requested',
-      context: {
-        service_id: 'hubspot',
-        workspace_id: '9950766',
-        entity_type: 'contact',
-        entity_id: '123'
-      }
-    } 
-    */
-    
     try {
-       
         const request_id = req.body.id;
-
-        // Init Morph client with your API key
         let morph = new Morph(process.env.API_KEY, process.env.API_SECRET);
 
-         // Load Morph's Action response Builder to build an action response to the current action request
         if(req.body.type === 'action'){
             let actionResponseBuilder = morph.newActionResponseBuilder(request_id);
-            let success = await actionResponseBuilder.build( (req.body.context.action_id !== 'action_failing'),`Action ${req.body.context.action_id} runned !`)
-    
+            let success = await actionResponseBuilder.build( (req.body.context.action_id !== 'action_failing'),`Action 
+            ${req.body.context.action_id} runned !`)
             if(success) {
-                res.status(201).send({ message: 'Created' });
-            } else {           
-                res.status(apiResponse.status).json({ 
-                    message: "An error occurred when sending POST request to the API.", 
-                    error: apiResponse.statusText 
-                });
+                return res.status(201).send({ message: 'Created' });
             }
         }
-        
-        // Load Morph's Card Builder to build a card response to the current request
+
         let cardBuilder = morph.newCardBuilder(request_id);
-        
-        // Create a new card
         let card = cardBuilder.newCard('Devis #5456');
-
         card.setLink("https://henri.pm/")
-
-        //
         card.newStatus('Status', 'Envoyé', 'WARNING');
         card.newText('Time',  new Date().toLocaleTimeString() );
-        
         card.newText('#1', ' ■ Poteau (1 x 1000€)');
         card.newText('#2', ' ■ Cable (4 x 100€)');
         card.newText('#3', ' □ Sardine (8 x 10€)');
-        
-
-
-        // Set a card level action
-         card.newAction('REQUEST', 'Card Action', null, 'action_card');
-        //card.newAction('OPEN_URL_IN_IFRAME', 'Edit in Qwoty', 'https://henri.pm/');
-        //card.newAction('OPEN_URL_IN_IFRAME', 'Open Website 2', 'https://app.runmorph.dev/embedded-flow?serviceId=hubspot');
-
-        // Set a card panel level action
-        //cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Nouveau devis', 'https://app.runmorph.dev/embedded-flow?serviceId='+req.body.context.service_id);
+        card.newAction('REQUEST', 'Card Action', null, 'action_card');
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
-
-
-        
-   
-        // Build the cards
-        let success = await cardBuilder.build(); // Use 'await' to wait for the promise ⚠️
-    
+        let success = await cardBuilder.build();
+ 
         if(success) {
-            res.status(201).send({ message: 'Created' });
-        } else {           
-            res.status(apiResponse.status).json({ 
+            return res.status(201).send({ message: 'Created' });
+        }
+        else {
+            return res.status(500).json({ 
                 message: "An error occurred when sending POST request to the API.", 
-                error: apiResponse.statusText 
+                error: "API Request Failed"
             });
         }
     } catch (error) {
         console.log(JSON.stringify(error))
-        res.status(500).json({ 
+        return res.status(500).json({ 
             message: 'An error occurred when fetching the request id or sending post request.', 
             error: error.message
         });
