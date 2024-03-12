@@ -6,27 +6,24 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
     try {
         const request_id = req.body.id;
         let morph = new Morph(process.env.API_KEY, process.env.API_SECRET);
-
-        if(req.body.type === 'action'){
-            let actionResponseBuilder = morph.newActionResponseBuilder(request_id);
-            let success = await actionResponseBuilder.build( (req.body.context.action_id !== 'action_failing'),`Action 
-            ${req.body.context.action_id} runned !`)
-            if(success) {
-                return res.status(201).send({ message: 'Created' });
-            }
-        }
-
+        
         let cardBuilder = morph.newCardBuilder(request_id);
+        
         let card = cardBuilder.newCard('Devis #5456');
         card.setLink("https://henri.pm/")
+        
         card.newStatus('Status', 'Envoyé', 'WARNING');
         card.newText('Time',  new Date().toLocaleTimeString() );
         card.newText('#1', ' ■ Poteau (1 x 1000€)');
         card.newText('#2', ' ■ Cable (4 x 100€)');
         card.newText('#3', ' □ Sardine (8 x 10€)');
         card.newAction('OPEN_URL_IN_IFRAME', 'Open iFrame', 'https://app.runmorph.dev/embedded-flow');
+
+        // Action at the root of the card view
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
+        
+        
         let success = await cardBuilder.build();
  
         if(success) {
