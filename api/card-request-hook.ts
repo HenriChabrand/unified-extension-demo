@@ -18,8 +18,11 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newText('#2', ' ■ Cable (4 x 100€)');
         card.newText('#3', ' □ Sardine (8 x 10€)');
         card.newAction('OPEN_URL_IN_IFRAME', 'Open iFrame', 'https://app.runmorph.dev/embedded-flow');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
 
         // Action at the root of the card view
+        card.newAction('OPEN_URL_IN_IFRAME', 'Open iFrame', 'https://app.runmorph.dev/embedded-flow');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
         
