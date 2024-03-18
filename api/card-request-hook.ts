@@ -13,7 +13,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.setLink("https://henri.pm/")
         
         card.newStatus('Status', 'Envoyé', 'WARNING');
-        card.newText('Time',  new Date().toLocaleTimeString() );
+        card.newText('Total',  new Date().toLocaleTimeString() );
         card.newText('#1', ' ■ Poteau (1 x 1000€)');
         card.newText('#2', ' ■ Cable (4 x 100€)');
         card.newText('#3', ' □ Sardine (8 x 10€)');
