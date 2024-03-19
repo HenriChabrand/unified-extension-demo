@@ -10,7 +10,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         let cardBuilder = morph.newCardBuilder(request_id);
         
         let card = cardBuilder.newCard('Devis #5456');
-        card.setLink("mailto:no-one@snai1mai1.com?subject=look at this website&body=Hi,I found this website and thought you might like it http://www.geocities.com/wowhtml/")
+        card.setLink("https://henri/pm")
         
         card.newStatus('Status', 'Envoyé', 'WARNING');
         card.newText('Expiration',  '21/03/24');
