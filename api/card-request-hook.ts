@@ -13,10 +13,20 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.setLink("https://henri.pm/")
         
         card.newStatus('Status', 'Envoyé', 'WARNING');
-        card.newText('Total',  new Date().toLocaleTimeString() );
-        card.newText('#1', ' ■ Poteau (1 x 1000€)');
-        card.newText('#2', ' ■ Cable (4 x 100€)');
-        card.newText('#3', ' □ Sardine (8 x 10€)');
+        card.newText('Expiration',  '21/03/24');
+        card.newText('Lien',  'link.qwoty.io/d/SDR45T45');
+        card.newText('Total HT ➀',  '2400,00€');
+        card.newText('Total HT ↻',  '120,00€');
+        card.newText('Remise HT ➀',  '50,00€');
+        card.newText('#1', 'Poteau De Clôture En Acier Galvanisé (1 x 1000€)');
+        card.newText('#2', 'Cable De Tension En Acier Inoxydable (4 x 100€)');
+        card.newText('#3', 'Piquets Ancrage de Sol en Acier Galvanisé (8 x 10€)');
+
+        card.newText('#4', 'Ensemble D\'attaches Pour Clôture (1 x 50€)');
+        card.newText('#5', 'Grille De Clôture En Métal De Qualité Supérieure (3 x 200€)');
+        card.newText('#6', 'Gravier Pour Répartition De Charge (50 x 5€)');
+        card.newText('#7', ' □ Porte De Jardin À Double Battant (1 x 400€)');
+        card.newText('#8', ' ■ Panneau Modulable De Clôture En Bois (6 x 150€)');
         card.newAction('OPEN_URL_IN_IFRAME', 'Open iFrame', 'https://app.runmorph.dev/embedded-flow');
         card.newAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
 
