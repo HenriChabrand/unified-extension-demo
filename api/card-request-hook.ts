@@ -15,9 +15,9 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newStatus('Status', 'Envoyé', 'WARNING');
         card.newText('Expiration',  '21/03/24');
         card.newText('Lien',  'link.qwoty.io/d/SDR45T45');
-        card.newText('Total HT ➀',  '2400,00€');
-        card.newText('Total HT ↻',  '120,00€');
-        card.newText('Remise HT ➀',  '50,00€');
+        card.newText('Total HT (unique)',  '2400,00€');
+        card.newText('Total HT (recurrent)',  '120,00€');
+        card.newText('Remise HT (unique)',  '50,00€');
         card.newText('#1', '■ (1 x 1000€) Poteau De Clôture En Acier Ga...');
         card.newText('#2', '■ (4 x 100€) Cable De Tension En Acier Inox...');
         card.newText('#3', '■ (8 x 10€) Piquets Ancrage de Sol en Acier...');
