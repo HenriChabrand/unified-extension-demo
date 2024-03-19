@@ -18,15 +18,15 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newText('Total HT ➀',  '2400,00€');
         card.newText('Total HT ↻',  '120,00€');
         card.newText('Remise HT ➀',  '50,00€');
-        card.newText('#1', 'Poteau De Clôture En Acier Galvanisé (1 x 1000€)');
-        card.newText('#2', 'Cable De Tension En Acier Inoxydable (4 x 100€)');
-        card.newText('#3', 'Piquets Ancrage de Sol en Acier Galvanisé (8 x 10€)');
+        card.newText('#1', '■ (1 x 1000€) Poteau De Clôture En Acier Ga...');
+        card.newText('#2', '■ (4 x 100€) Cable De Tension En Acier Inox...');
+        card.newText('#3', '■ (8 x 10€) Piquets Ancrage de Sol en Acier...');
 
-        card.newText('#4', 'Ensemble D\'attaches Pour Clôture (1 x 50€)');
-        card.newText('#5', 'Grille De Clôture En Métal De Qualité Supérieure (3 x 200€)');
-        card.newText('#6', 'Gravier Pour Répartition De Charge (50 x 5€)');
-        card.newText('#7', ' □ Porte De Jardin À Double Battant (1 x 400€)');
-        card.newText('#8', ' ■ Panneau Modulable De Clôture En Bois (6 x 150€)');
+        card.newText('#4', '■ (1 x 50€) Ensemble D\'attaches Pour Clôtu...');
+        card.newText('#5', '□ (3 x 200€) Grille De Clôture En Métal De ...');
+        card.newText('#6', '▣ (50 x 5€) Gravier Pour Répartition De Cha...');
+        card.newText('#7', '□ (1 x 400€) Porte De Jardin À Double Batta...');
+        card.newText('#8', '▣ (6 x 150€) Panneau Modulable De Clôture E...');
         card.newAction('OPEN_URL_IN_IFRAME', 'Open iFrame', 'https://app.runmorph.dev/embedded-flow');
         card.newAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
 
