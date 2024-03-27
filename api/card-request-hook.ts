@@ -39,7 +39,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         const card_response = await cardBuilder.build();
 
         console.log(card_response)
-        return card_response;
+        return res.status(201).send(card_response);
         
         /*let success = await cardBuilder.build();
  
