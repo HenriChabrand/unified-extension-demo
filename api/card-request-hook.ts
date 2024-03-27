@@ -36,8 +36,10 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
-        
-        return cardBuilder.build();
+        const card_response = cardBuilder.build();
+
+        console.log(card_response)
+        return card_response;
         
         /*let success = await cardBuilder.build();
  
