@@ -36,12 +36,13 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
-        const card_response = await cardBuilder.build();
-
-        console.log(card_response)
-        return res.status(201).send(card_response);
         
-        /*let success = await cardBuilder.build();
+        
+        
+        //const card_response = await cardBuilder.build();
+        //return res.status(201).send(card_response);
+        
+        let success = await cardBuilder.build();
  
         if(success) {
             return res.status(201).send({ message: 'Created' });
@@ -51,7 +52,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
                 message: "An error occurred when sending POST request to the API.", 
                 error: "API Request Failed"
             });
-        }*/
+        }
     } catch (error) {
         console.log(JSON.stringify(error))
         return res.status(500).json({ 
