@@ -7,7 +7,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         const request_id = req.body.id;
         let morph = new Morph(process.env.API_KEY, process.env.API_SECRET);
         
-        let cardBuilder = morph.newCardBuilder(request_id, true);
+        let cardBuilder = morph.newCardBuilder(request_id);
         
         let card = cardBuilder.newCard('Devis #5456');
         card.setLink("https://henri/pm")
