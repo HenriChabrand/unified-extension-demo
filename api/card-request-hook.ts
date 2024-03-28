@@ -7,7 +7,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         const request_id = req.body.id;
         let morph = new Morph(process.env.API_KEY, process.env.API_SECRET);
         
-        let cardBuilder = morph.newCardBuilder(request_id);
+        let cardBuilder = morph.newCardBuilder(request_id, true);
         
         let card = cardBuilder.newCard('Devis #5456');
         card.setLink("https://henri/pm")
@@ -39,10 +39,10 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         
         
         
-        //const card_response = await cardBuilder.build();
-        //return res.status(201).send(card_response);
+        const card_response = await cardBuilder.build();
+        return res.status(201).send(card_response);
         
-        let success = await cardBuilder.build();
+        /*let success = await cardBuilder.build();
  
         if(success) {
             return res.status(201).send({ message: 'Created' });
@@ -52,7 +52,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
                 message: "An error occurred when sending POST request to the API.", 
                 error: "API Request Failed"
             });
-        }
+        }*/
     } catch (error) {
         console.log(JSON.stringify(error))
         return res.status(500).json({ 
