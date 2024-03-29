@@ -47,11 +47,79 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
                 {
                     "type": "OPEN_URL_IN_IFRAME",
                     "label": "Nouveau devis",
-                    "url": "https://activetest.qwile.com/morph/page/card_proxy?username=act121521484731001&opportunity_id=15214847310"
+                    "url": "https://activetest.qwile.com/morph/page/card_proxy?username=act121759068663502&opportunity_id=17590686635"
                 }
             ]
         },
-        "cards": null
+        "cards": [
+            {
+                "title": "Devis #351",
+                "contents": [
+                    {
+                        "type": "status",
+                        "label": "Statut",
+                        "value": "En cours",
+                        "color": "INFO"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Expiration",
+                        "value": "01-01-1970",
+                        "color": null
+                    },
+                    {
+                        "type": "text",
+                        "label": "Lien du devis",
+                        "value": "https://activetest.qwile.com?id=act121759068663501",
+                        "color": null
+                    },
+                    {
+                        "type": "text",
+                        "label": "Total HT (unique)",
+                        "value": " €",
+                        "color": null
+                    },
+                    {
+                        "type": "text",
+                        "label": "Total HT (récurrent)",
+                        "value": " €",
+                        "color": null
+                    },
+                    {
+                        "type": "text",
+                        "label": "Remise HT (unique)",
+                        "value": " €",
+                        "color": null
+                    },
+                    {
+                        "type": "text",
+                        "label": "#1",
+                        "value": "■   1 X  | Gobelets 15cl",
+                        "color": null
+                    },
+                    {
+                        "type": "text",
+                        "label": "#2",
+                        "value": "■   6 X  | Gobelets 25 cl",
+                        "color": null
+                    },
+                    {
+                        "type": "text",
+                        "label": "#3",
+                        "value": "■   1 X  | Pérou BIO",
+                        "color": null
+                    }
+                ],
+                "actions": [
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "Modifier",
+                        "url": "https://activetest.qwile.com/asjzo1818nszijhhsbz81u2nznh?frm_action=edit&entry=351"
+                    }
+                ],
+                "link": "https://activetest.qwile.com/asjzo1818nszijhhsbz81u2nznh?frm_action=edit&entry=351"
+            }
+        ]
     }
 });
         
