@@ -40,7 +40,20 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         
         
         const card_response = await cardBuilder.build();      
-        return res.status(201).send(card_response);
+        return res.status(201).send({
+    "card_view": {
+        "root": {
+            "actions": [
+                {
+                    "type": "OPEN_URL_IN_IFRAME",
+                    "label": "Nouveau devis",
+                    "url": "https://activetest.qwile.com/morph/page/card_proxy?username=act121521484731001&opportunity_id=15214847310"
+                }
+            ]
+        },
+        "cards": null
+    }
+});
         
         /*let success = await cardBuilder.build();
  
