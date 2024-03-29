@@ -39,78 +39,8 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         
         
         
-        const card_response = await cardBuilder.build();
-        const test = {
-          "card_view": {
-            "root": {
-              "actions": [
-                {
-                  "type": "OPEN_URL_IN_IFRAME",
-                  "label": "Nouveau devis",
-                  "url": "https://activetest3.qwile.com/morph/page/card_proxy?username=act141191445296202&opportunity_id=11914452962"
-                }
-              ]
-            },
-            "cards": [
-              {
-                "title": "Devis #513",
-                "contents": [
-                  {
-                    "type": "status",
-                    "label": "Statut",
-                    "value": "En cours",
-                    "color": "INFO"
-                  },
-                  {
-                    "type": "text",
-                    "label": "Expiration",
-                    "value": "01-01-1970",
-                    "color": null
-                  },
-                  {
-                    "type": "text",
-                    "label": "Lien du devis",
-                    "value": "https://activetest3.qwile.com?id=act141191445296201",
-                    "color": null
-                  },
-                  {
-                    "type": "text",
-                    "label": "Total HT (unique)",
-                    "value": " €",
-                    "color": null
-                  },
-                  {
-                    "type": "text",
-                    "label": "Total HT (récurrent)",
-                    "value": " €",
-                    "color": null
-                  },
-                  {
-                    "type": "text",
-                    "label": "Remise HT (unique)",
-                    "value": " €",
-                    "color": null
-                  },
-                  {
-                    "type": "text",
-                    "label": "#1",
-                    "value": "■   1 X  | Gobelets 15cl",
-                    "color": null
-                  }
-                ],
-                "actions": [
-                  {
-                    "type": "OPEN_URL_IN_IFRAME",
-                    "label": "Modifier",
-                    "url": "https://activetest3.qwile.com/asjzo1818nszijhhsbz81u2nznh?frm_action=edit&entry=513"
-                  }
-                ],
-                "link": "https://activetest3.qwile.com/asjzo1818nszijhhsbz81u2nznh?frm_action=edit&entry=513"
-              }
-            ]
-          }
-        }
-        return res.status(201).send(test);
+        const card_response = await cardBuilder.build();      
+        return res.status(201).send(card_response);
         
         /*let success = await cardBuilder.build();
  
