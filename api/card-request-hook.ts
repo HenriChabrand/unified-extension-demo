@@ -8,34 +8,38 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         let morph = new Morph(process.env.API_KEY, process.env.API_SECRET);
         
         let cardBuilder = morph.newCardBuilder(request_id, true);
+
         
-        let card = cardBuilder.newCard('Devis #5456');
+        let card_2 = cardBuilder.newCard('Morph License Agreement');
+        card_2.setLink("https://henri/pm")
+        
+        card_2.newStatus('Status', 'Awaiting Signature', 'WARNING');
+        card_2.newText('Until',  '15/04/24');
+        card_2.newText('Signee',  'Mark Ross');
+        card_2.newText('Owner',  'Henri Chabrand');
+        
+        card_2.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
+        card_2.newAction('OPEN_URL_IN_IFRAME', 'Download as PDF', 'https://runmorph.dev');
+        
+        let card = cardBuilder.newCard('NDA Partners (V2.4)');
         card.setLink("https://henri/pm")
         
-        card.newStatus('Status', 'Envoyé', 'WARNING');
-        card.newText('Expiration',  '21/03/24');
-        card.newText('Lien',  'link.qwoty.io/d/SDR45T45');
-        card.newText('Total HT (unique)',  '2400,00€');
-        card.newText('Total HT (récurrent)',  '120,00€');
-        card.newText('Remise HT (unique)',  '50,00€');
-        card.newText('#1', '■ 1 x 1000€ | Poteau De Clôture En Acier Ga...');
-        card.newText('#2', '■ 4 x 100€ | Cable De Tension En Acier Inox...');
-        card.newText('#3', '■ 8 x 10€ | Piquets Ancrage de Sol en Acier...');
+        card.newStatus('Status', 'Signed', 'SUCCESS');
+        card.newText('Since',  '21/03/24');
+        card.newText('Signee',  'Ron Swanson');
+        card.newText('Owner',  'Henri Chabrand');
         
-
-        card.newText('#4', '■ 1 x 50€ | Ensemble D\'attaches Pour Clôtu...');
-        card.newText('#5', '□ 3 x 200€ | Grille De Clôture En Métal De ...');
-        card.newText('#6', '▣ 50 x 5€ | Gravier Pour Répartition De Cha...');
-        card.newText('#7', '□ 1 x 400€ | Porte De Jardin À Double Batta...');
-        card.newText('#8', '▣ 6 x 150€ | Panneau Modulable De Clôture E...');
-        card.newAction('OPEN_URL_IN_IFRAME', 'Open iFrame', 'https://app.runmorph.dev/embedded-flow');
-        card.newAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Download as PDF', 'https://runmorph.dev');
 
         // Action at the root of the card view
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open iFrame', 'https://app.runmorph.dev/embedded-flow');
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
+        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Contract', 'https://app.runmorph.dev/embedded-flow');
+
+
+
+        /*cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
-        cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
+        cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');*/
         
         
         
