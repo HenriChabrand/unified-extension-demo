@@ -19,7 +19,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card_2.newText('Owner',  'Henri Chabrand');
         
         card_2.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
-        card_2.newAction('OPEN_URL_IN_IFRAME', 'Download as PDF', 'https://runmorph.dev');
+        card_2.newAction('OPEN_URL', 'Download as PDF', 'https://runmorph.dev');
         
         let card = cardBuilder.newCard('NDA Partners (V2.4)');
         card.setLink("https://henri/pm")
@@ -30,7 +30,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newText('Owner',  'Henri Chabrand');
         
         card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
-        card.newAction('OPEN_URL_IN_IFRAME', 'Download as PDF', 'https://runmorph.dev');
+        card.newAction('OPEN_URL', 'Download as PDF', 'https://runmorph.dev');
 
         // Action at the root of the card view
         cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Contract', 'https://app.runmorph.dev/embedded-flow');
