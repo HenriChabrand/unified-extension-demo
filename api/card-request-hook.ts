@@ -16,7 +16,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card_2.newStatus('Status', 'Awaiting Signature', 'WARNING');
         card_2.newText('Until',  '15/04/24');
         card_2.newText('Signee',  'Mark Ross');
-        card_2.newText('Contrat PDF',  'voir le PDF','https://test.qwoty.io/qwoty/d0eb5051f57c2927279f384d31da91a9/#https://app-eu1.hubspot.com');
+        card_2.newText('Contract PDF',  'voir le PDF','https://test.qwoty.io/qwoty/d0eb5051f57c2927279f384d31da91a9/#https://app-eu1.hubspot.com');
         card_2.newText('Owner',  'Henri Chabrand');
         
         card_2.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
