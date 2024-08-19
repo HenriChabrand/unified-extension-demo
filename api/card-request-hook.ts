@@ -20,7 +20,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card_2.newText('Owner',  'Henri Chabrand');
         
         card_2.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://api.hyperline.co/v1/integrations/crm/cards?action=sync_account&client_id=cli_EZSe3hXAt5hsSg&user_id=usr_A6Scr2OUUdetLC&service=hubspot&account_id=8855404024&redirect_view=customer');
-        card_2.newAction('OPEN_URL', 'Download as PDF', 'https://runmorph.dev');
+        card_2.newAction('OPEN_URL', 'Download as PDF', 'https://comerso.qwoty.io/morph/page/card_proxy?username=com228940166&opportunity_id=894&crm=crm-pipedrive');
         
         let card = cardBuilder.newCard('NDA Partners (V2.4)');
         card.setLink("https://henri/pm")
