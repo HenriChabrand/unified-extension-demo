@@ -16,11 +16,11 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card_2.newStatus('Status', 'Awaiting Signature', 'WARNING');
         card_2.newText('Until',  '15/04/24');
         card_2.newText('Signee',  'Mark Ross');
-        card_2.newText('Contract PDF',  'voir le PDF','https://comerso.qwoty.io/morph/page/card_proxy?username=com228940166&opportunity_id=894&crm=crm-pipedrive');
+        card_2.newText('Contract PDF',  'voir le PDF','https://app.runmorph.dev/embedded-flow');
         card_2.newText('Owner',  'Henri Chabrand');
         
-        card_2.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://api.hyperline.co/v1/integrations/crm/cards?action=sync_account&client_id=cli_EZSe3hXAt5hsSg&user_id=usr_A6Scr2OUUdetLC&service=hubspot&account_id=8855404024&redirect_view=customer');
-        card_2.newAction('OPEN_URL', 'Download as PDF', 'https://comerso.qwoty.io/morph/page/card_proxy?username=com228940166&opportunity_id=894&crm=crm-pipedrive');
+        card_2.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
+        card_2.newAction('OPEN_URL', 'Download as PDF', 'https://app.runmorph.dev/embedded-flow');
         
         let card = cardBuilder.newCard('NDA Partners (V2.4)');
         card.setLink("https://henri/pm")
