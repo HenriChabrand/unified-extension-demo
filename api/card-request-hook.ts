@@ -30,7 +30,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newText('Signee',  'Ron Swanson');
         card.newText('Owner',  'Henri Chabrand');
         
-        card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://whatwebcando.today/clipboard.html');
+        card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://web.dev/patterns/clipboard/copy-text?hl=fr');
         card.newAction('OPEN_URL', 'Download as PDF', 'https://runmorph.dev');
 
         // Action at the root of the card view
