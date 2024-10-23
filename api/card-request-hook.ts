@@ -29,18 +29,19 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newText('Since',  '21/03/24');
         card.newText('Signee',  'Ron Swanson');
         card.newText('Owner',  'Henri Chabrand');
-        
-        card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://whatwebcando.today/clipboard.html');
-        card.newAction('OPEN_URL', 'Download as PDF', 'https://runmorph.dev');
+        card.newAction('REQUEST', 'Success Action', null, 'action_success');
+           card.newAction('REQUEST', 'Failing Action', null, 'action_failing');
+        //card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://whatwebcando.today/clipboard.html');
+       // card.newAction('OPEN_URL', 'Download as PDF', 'https://runmorph.dev');
 
         // Action at the root of the card view
-        cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Contract', 'https://app.runmorph.dev/embedded-flow');
+        //cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'New Contract', 'https://app.runmorph.dev/embedded-flow');
 
 
 
-        /*cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
+        //cardBuilder.newRootAction('OPEN_URL_IN_IFRAME', 'Open in Tab', 'https://runmorph.dev');
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
-        cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');*/
+        cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
         
         
         
