@@ -10,7 +10,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         let cardBuilder = morph.newCardBuilder(request_id, true);
 
         
-        let card_2 = cardBuilder.newCard('Morph License Agreement');
+       /* let card_2 = cardBuilder.newCard('Morph License Agreement');
         card_2.setLink("https://henri/pm")
         
         card_2.newStatus('Status', 'Awaiting Signature', 'WARNING');
@@ -21,7 +21,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         
         card_2.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
         card_2.newAction('OPEN_URL', 'Download as PDF', 'https://app.runmorph.dev/embedded-flow');
-        
+       
         let card = cardBuilder.newCard('NDA Partners (V2.4)');
         card.setLink("https://henri/pm")
         
@@ -43,8 +43,15 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
         
+         */
+        let card = cardBuilder.newCard('Test');
         
         
+        
+        card.newText('Debug',  'true');
+       
+        card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://app.runmorph.dev/embedded-flow');
+    
         const card_response = await cardBuilder.build();      
         return res.status(201).send(card_response);
         
