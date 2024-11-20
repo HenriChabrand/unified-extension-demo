@@ -10,7 +10,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         let cardBuilder = morph.newCardBuilder(request_id, true);
 
         
-       /* let card_2 = cardBuilder.newCard('Morph License Agreement');
+        let card_2 = cardBuilder.newCard('Morph License Agreement');
         card_2.setLink("https://henri/pm")
         
         card_2.newStatus('Status', 'Awaiting Signature', 'WARNING');
@@ -43,7 +43,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         cardBuilder.newRootAction('REQUEST', 'Success Action', null, 'action_success');
         cardBuilder.newRootAction('REQUEST', 'Failing Action', null, 'action_failing');
         
-         */
+         
         let card = cardBuilder.newCard('Test');
         
         
