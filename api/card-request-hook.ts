@@ -11,7 +11,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
         
         let card_2 = cardBuilder.newCard('Morph License Agreement');
-        card_2.setLink("https://henri/pm")
+        card_2.setLink("https://henri.pm")
         
         card_2.newStatus('Status', 'Awaiting Signature', 'WARNING');
         card_2.newText('Until',  '15/04/24');
@@ -28,7 +28,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
         card.newStatus('Status', 'Signed', 'SUCCESS');
         card.newText('Since',  '21/03/24');
         card.newText('Signee',  'Ron Swanson');
-        card.newText('Owner',  'Henri Chabrand');
+        card.newText('Owner',  'Henri Chabrand','https://henri.pm');
         card.newAction('REQUEST', 'Success Action', null, 'action_success');
            card.newAction('REQUEST', 'Failing Action', null, 'action_failing');
         //card.newAction('OPEN_URL_IN_IFRAME', 'Edit Contract', 'https://whatwebcando.today/clipboard.html');
