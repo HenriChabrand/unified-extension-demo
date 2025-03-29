@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2018",
     "module": "commonjs",
+    "lib": ["es2018", "esnext.asynciterable"],
     "strict": true,
     "noImplicitReturns": false,
     "baseUrl": "./",
@@ -9,6 +10,13 @@
       "~*": ["*"]
     },
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "outDir": "dist"
+  },
+  "include": ["api/**/*"],
+  "exclude": ["node_modules"]
 }
