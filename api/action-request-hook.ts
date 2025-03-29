@@ -17,15 +17,12 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
     if (req.body.type === "card" && req.body.context?.card_id) {
       let cardId = req.body.context.card_id ?? "";
-      let actionResponseBuilder = morph.newActionResponseBuilder(request_id);
+      let cardResponseBuilder = morph.newActionResponseBuilder(request_id);
 
-      let action_succeed = cardId !== "card_failing";
-      let action_message = `Card ${cardId} processed!`;
+      let card_succeed = cardId !== "card_failing";
+      let card_message = `Card ${cardId} processed!`;
 
-      let success = await actionResponseBuilder.build(
-        action_succeed,
-        action_message
-      );
+      let success = await cardResponseBuilder.build(card_succeed, card_message);
       if (success) {
         res.status(201).json({ message: "Created" });
         return;
