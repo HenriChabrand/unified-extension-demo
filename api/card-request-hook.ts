@@ -48,7 +48,17 @@ export default async (
     nda_card.newText("Owner", "Henri Chabrand", "https://henri.pm");
     nda_card.newAction("REQUEST", "Success Action", "", "action_success");
     nda_card.newAction("REQUEST", "Failing Action", "", "action_failing");
+     cardBuilder.newRootAction(
+      "OPEN_URL_IN_IFRAME",
+      "Open URL (iframe)",
+      "https://app.runmorph.dev/embedded-flow"
+    );
 
+    cardBuilder.newRootAction(
+      "OPEN_URL",
+      "Open URL (tab)",
+      "https://app.runmorph.dev/embedded-flow"
+    );
     cardBuilder.newRootAction(
       "REQUEST",
       "Success Action",
