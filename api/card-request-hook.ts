@@ -81,7 +81,170 @@ export default async (
     );
 
     const card_response = await cardBuilder.build();
-    return res.status(201).send(card_response);
+
+
+    return res.status(201).send(
+{
+    "type": "card_view",
+    "completed": true,
+    "card_view": {
+        "root": {
+            "actions": [
+                {
+                    "type": "OPEN_URL_IN_IFRAME",
+                    "label": "Manage customer",
+                    "url": "https://app.hyperline.co/app/customers/cus_vxsb6nzZ47TcYw?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                },
+                {
+                    "type": "OPEN_URL_IN_IFRAME",
+                    "label": "Create quote",
+                    "url": "https://app.hyperline.co/app/quoting/quotes/create?customerId=cus_vxsb6nzZ47TcYw&sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                },
+                {
+                    "type": "OPEN_URL_IN_IFRAME",
+                    "label": "Create quote update",
+                    "url": "https://app.hyperline.co/app/quoting/quotes/subscription-update/cus_vxsb6nzZ47TcYw?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                },
+                {
+                    "type": "OPEN_URL_IN_IFRAME",
+                    "label": "Assign subscription",
+                    "url": "https://app.hyperline.co/app/subscriptions/create?customerId=cus_vxsb6nzZ47TcYw&sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                }
+            ]
+        },
+        "cards": [
+            {
+                "title": "Subscription (Pinpoint Enterprise Plan)",
+                "link": "https://app.hyperline.co/app/subscriptions/sub_I23JHCiYCypHsc?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw",
+                "contents": [
+                    {
+                        "type": "status",
+                        "label": "Status",
+                        "value": "Active",
+                        "color": "SUCCESS"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Pinpoint Enterprise Plan",
+                        "value": " 10\u202f000,00 £GB / year"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Estimated ARR",
+                        "value": "0,00 £GB"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Phase duration",
+                        "value": "1 Apr 2020 - 1 Nov 2025"
+                    },
+                    {
+                        "type": "status",
+                        "label": "Last invoice status",
+                        "value": "Paid",
+                        "color": "SUCCESS"
+                    }
+                ],
+                "actions": [
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "Manage subscription",
+                        "url": "https://app.hyperline.co/app/subscriptions/sub_I23JHCiYCypHsc?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                    },
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "Create quote update",
+                        "url": "https://app.hyperline.co/app/quoting/quotes/subscription-update/cus_vxsb6nzZ47TcYw/sub_I23JHCiYCypHsc?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                    },
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "View last invoice",
+                        "url": "https://app.hyperline.co/app/invoices/inv_lmrAvNtponyF8z?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                    }
+                ]
+            },
+            {
+                "title": "Subscription (Pinpoint Enterprise Plan)",
+                "link": "https://app.hyperline.co/app/subscriptions/sub_4WqLzIIpC91DW9?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw",
+                "contents": [
+                    {
+                        "type": "status",
+                        "label": "Status",
+                        "value": "Active",
+                        "color": "SUCCESS"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Pinpoint Enterprise Plan",
+                        "value": " 10\u202f000,00 £GB / year"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Estimated ARR",
+                        "value": "10\u202f000,00 £GB"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Duration",
+                        "value": "19 Sept 2019 - Forever"
+                    },
+                    {
+                        "type": "status",
+                        "label": "Last invoice status",
+                        "value": "Paid",
+                        "color": "SUCCESS"
+                    }
+                ],
+                "actions": [
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "Manage subscription",
+                        "url": "https://app.hyperline.co/app/subscriptions/sub_4WqLzIIpC91DW9?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                    },
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "Create quote update",
+                        "url": "https://app.hyperline.co/app/quoting/quotes/subscription-update/cus_vxsb6nzZ47TcYw/sub_4WqLzIIpC91DW9?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                    },
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "View last invoice",
+                        "url": "https://app.hyperline.co/app/invoices/inv_oKXHtXh73jiArv?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                    }
+                ]
+            },
+            {
+                "title": "Subscription (Pinpoint Enterprise Plan)",
+                "link": "https://dashboard.stripe.com/subscriptions/Canaccord Isle of Man",
+                "contents": [
+                    {
+                        "type": "status",
+                        "label": "Status",
+                        "value": "Cancelled",
+                        "color": "DEFAULT"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Pinpoint Enterprise Plan",
+                        "value": " 8\u202f000,00 £GB / year"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Duration",
+                        "value": "23 Jan 2023 - 25 Jan 2024"
+                    }
+                ],
+                "actions": [
+                    {
+                        "type": "OPEN_URL_IN_IFRAME",
+                        "label": "Create quote update",
+                        "url": "https://app.hyperline.co/app/quoting/quotes/subscription-update/cus_vxsb6nzZ47TcYw/sub_z2A7sqrfDGByeZ?sidebar=false&embedded=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYXBwIiwidXNlcklkIjoidXNyX1l0Y2pEZkRiUFdNOTVCIiwiY2xpZW50SWQiOiJjbGlfV2QwMFBaRV94WXJtYzAiLCJjcm0iOnsiY29tcGFueUlkIjoiMTEwNDM4NTY5NyIsImNvbnRhY3RJZCI6bnVsbCwib3Bwb3J0dW5pdHlJZCI6bnVsbH0sImlzcyI6Imh5cGVybGluZSIsImlhdCI6MTc1OTQ4NTQwNCwiZXhwIjoxNzU5NDg5MDA0fQ._3A1yN8cL49GXp3iyOPq5x4iS6xzZcID0G8OMIiT-Uw"
+                    }
+                ]
+            }
+        ]
+    }
+});
   } catch (error: unknown) {
     console.log(JSON.stringify(error));
     return res.status(500).json({
